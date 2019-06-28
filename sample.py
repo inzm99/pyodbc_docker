@@ -6,9 +6,8 @@ password = 'XXXXXX'
 port ='1433'
 tsql ="select @@version"
 
-cnn = pyodbc.connect('DRIVER={FreeTDS};SERVER='+server+';PORT='+port+';UID='+username+';PWD='+ password)
+cnn = pyodbc.connect('DRIVER=FreeTDS;SERVER='+server+';PORT='+port+';UID='+username+';PWD='+ password)
 cur = cnn.cursor()
-with
-    cur.execute(tsql)
-    row = cur.fetchone()
-    print(str(row[0]))
+cur.execute(tsql)
+row = cur.fetchone()
+print(str(row[0]))
